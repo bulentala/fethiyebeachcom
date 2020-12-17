@@ -6,28 +6,13 @@ const Index = ({ data }) => {
   return (
     <>
       <div>fethiyebeach.com</div>
-      <div>
-        {data.map((beaches) => (
-          <amp-story-player
-            layout='fixed'
-            width={270}
-            height={480}
-            key={beaches.id}
-          >
-            <a
-              className='test'
-              href={`http://localhost:3000/${slug(beaches.title)}-${
-                beaches.id
-              }`}
-            >
-              Stories in AMP - Hello World
-            </a>
-          </amp-story-player>
-        ))}
-      </div>
-      <style jsx>{`
-        test: "--story-player-poster: url('https://amp.dev/static/samples/img/story_dog2_portrait.jpg')";
-      `}</style>
+      {data.map((beaches) => (
+        <div>
+          <Link href={`/${slug(beaches.title)}-${beaches.id}`}>
+            <a>{beaches.title}</a>
+          </Link>
+        </div>
+      ))}
     </>
   );
 };
