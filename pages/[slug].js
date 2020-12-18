@@ -5,7 +5,7 @@ import Head from "next/head";
 const Story = ({ data }) => {
   return (
     <>
-      {/* <Head>
+      <Head>
         <title>{data.storyTitle}</title>
       </Head>
       <amp-story
@@ -27,33 +27,33 @@ const Story = ({ data }) => {
           src='/bookend.json'
           layout='nodisplay'
         ></amp-story-bookend>
-      </amp-story> */}
+      </amp-story>
     </>
   );
 };
 
-// export async function getStaticPaths() {
-//   const res = await fetch(`${process.env.API_BASE_URL}en`);
-//   const datas = await res.json();
+export async function getStaticPaths() {
+  const res = await fetch(`${process.env.API_BASE_URL}en`);
+  const datas = await res.json();
 
-//   const paths = datas.map((beaches) => {
-//     return { params: { slug: `${slug(beaches.title)}-${beaches.id}` } };
-//   });
+  const paths = datas.map((beaches) => {
+    return { params: { slug: `${slug(beaches.title)}-${beaches.id}` } };
+  });
 
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
-// export async function getStaticProps({ params }) {
-//   const id = params.slug.split("-").slice(-1)[0];
-//   const res = await fetch(`${process.env.API_BASE_URL}en/` + id);
-//   const data = await res.json();
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// }
+  return {
+    paths,
+    fallback: false,
+  };
+}
+export async function getStaticProps({ params }) {
+  const id = params.slug.split("-").slice(-1)[0];
+  const res = await fetch(`${process.env.API_BASE_URL}en/` + id);
+  const data = await res.json();
+  return {
+    props: {
+      data,
+    },
+  };
+}
 export const config = { amp: true };
 export default Story;
