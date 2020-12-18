@@ -33,7 +33,7 @@ const Story = ({ data }) => {
 };
 
 export async function getStaticPaths() {
-  const res = await fetch("http://localhost:3000/api/en");
+  const res = await fetch(`${process.env.API_BASE_URL}en`);
   const datas = await res.json();
 
   const paths = datas.map((beaches) => {
@@ -47,7 +47,7 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps({ params }) {
   const id = params.slug.split("-").slice(-1)[0];
-  const res = await fetch("http://localhost:3000/api/en/" + id);
+  const res = await fetch(`${process.env.API_BASE_URL}en/` + id);
   const data = await res.json();
   return {
     props: {
