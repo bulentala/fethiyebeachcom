@@ -1,5 +1,14 @@
 export const en = [
-  { id: "1", title: "Aksazlar Plajı" },
+  {
+    id: "1",
+    title: "Aksazlar Plajı",
+    publisher: "Bülent ALA",
+    storyTitle: "Fethiye Aksazlar Plajı",
+    publisherlogoSrc: "aksazlar-koyu.jpg",
+    posterPortraitSrc: "aksazlar-koyu.jpg",
+    posterSquareSrc: "aksazlar-koyu.jpg",
+    posterLandscapeSrc: "aksazlar-koyu.jpg",
+  },
   { id: "2", title: "Belcekız Plajı" },
   { id: "3", title: "Çalış Plajı" },
   { id: "4", title: "Gemile Koyu " },

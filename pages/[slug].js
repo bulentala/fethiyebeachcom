@@ -1,18 +1,21 @@
 import AmpAnalytics from "components/AmpAnalystic";
 import React from "react";
 import slug from "slug";
-
+import Head from "next/head";
 const Story = ({ data }) => {
   return (
     <>
+      <Head>
+        <title>{data.storyTitle}</title>
+      </Head>
       <amp-story
         standalone=''
-        publisher='The Publisher'
-        title='My Story'
-        publisher-logo-src='logo.png'
-        poster-portrait-src='poster-portrait.png'
-        poster-square-src='poster-square.png'
-        poster-landscape-src='poster-landscape.png'
+        publisher={data.publisher}
+        title={data.storyTitle}
+        publisher-logo-src={`/${data.publisherLogoSrc}`}
+        poster-portrait-src={`/${data.posterPortraitSrc}`}
+        poster-square-src={`/${data.posterSquareSrc}`}
+        poster-landscape-src={`/${data.posterLandscapeSrc}`}
       >
         <amp-story-page id='cover'>
           <amp-story-grid-layer template='vertical'>
@@ -21,13 +24,14 @@ const Story = ({ data }) => {
         </amp-story-page>
         <AmpAnalytics />
         <amp-story-bookend
-          src='bookend.json'
+          src='/bookend.json'
           layout='nodisplay'
         ></amp-story-bookend>
       </amp-story>
     </>
   );
 };
+
 export async function getStaticPaths() {
   const res = await fetch("http://localhost:3000/api/en");
   const datas = await res.json();
@@ -41,12 +45,10 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
-
 export async function getStaticProps({ params }) {
   const id = params.slug.split("-").slice(-1)[0];
   const res = await fetch("http://localhost:3000/api/en/" + id);
   const data = await res.json();
-
   return {
     props: {
       data,
