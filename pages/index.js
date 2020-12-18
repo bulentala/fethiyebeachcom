@@ -6,7 +6,7 @@ import AmpAnalytics from "components/AmpAnalystic";
 const Index = ({ data }) => {
   return (
     <>
-      {/* <div>fethiyebeach.com</div>
+      <div>fethiyebeach.com</div>
       {data.map((beaches) => (
         <div key={beaches.id}>
           <Link href={`/${slug(beaches.title)}-${beaches.id}`}>
@@ -14,18 +14,18 @@ const Index = ({ data }) => {
           </Link>
         </div>
       ))}
-      <AmpAnalytics /> */}
+      <AmpAnalytics />
     </>
   );
 };
-// export async function getStaticProps() {
-//   const res = await fetch(`${process.env.API_BASE_URL}en`);
-//   const data = await res.json();
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  const res = await fetch(`${process.env.API_BASE_URL}en`);
+  const data = await res.json();
+  return {
+    props: {
+      data,
+    },
+  };
+}
 export const config = { amp: true };
 export default Index;
