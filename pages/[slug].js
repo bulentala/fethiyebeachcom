@@ -1,3 +1,4 @@
+import AmpAnalytics from "components/AmpAnalystic";
 import React from "react";
 import slug from "slug";
 
@@ -18,6 +19,7 @@ const Story = ({ data }) => {
             <h1> {data.title}</h1>
           </amp-story-grid-layer>
         </amp-story-page>
+        <AmpAnalytics />
         <amp-story-bookend
           src='bookend.json'
           layout='nodisplay'
