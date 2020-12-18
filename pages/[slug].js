@@ -27,6 +27,14 @@ const Story = ({ data }) => {
             <h1> {data.title}</h1>
           </amp-story-grid-layer>
         </amp-story-page>
+        <amp-story-page id='1'>
+          <amp-story-grid-layer template='vertical'>
+            <p>Nasıl Gidilir</p>
+          </amp-story-grid-layer>
+          <amp-story-page-attachment layout='nodisplay'>
+            test
+          </amp-story-page-attachment>
+        </amp-story-page>
         <AmpAnalytics />
         <amp-story-bookend
           src='/bookend.json'
