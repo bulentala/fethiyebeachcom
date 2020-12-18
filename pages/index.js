@@ -19,7 +19,7 @@ const Index = ({ data }) => {
   );
 };
 export async function getStaticProps() {
-  const res = await fetch(`${process.env.LOCAL_DB}`);
+  const res = await fetch(`${process.env.API_BASE_URL}/api/en/`);
   const data = await res.json();
   return {
     props: {
