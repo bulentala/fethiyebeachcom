@@ -5,7 +5,7 @@ import Head from "next/head";
 const Story = ({ data }) => {
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>{data.storyTitle}</title>
         <script
           async
@@ -32,7 +32,7 @@ const Story = ({ data }) => {
           src='/bookend.json'
           layout='nodisplay'
         ></amp-story-bookend>
-      </amp-story>
+      </amp-story> */}
     </>
   );
 };

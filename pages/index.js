@@ -6,7 +6,7 @@ import AmpAnalytics from "components/AmpAnalystic";
 const Index = ({ data }) => {
   return (
     <>
-      <div>fethiyebeach.com</div>
+      {/* <div>fethiyebeach.com</div>
       {data.map((beaches) => (
         <div key={beaches.id}>
           <Link href={`/${slug(beaches.title)}-${beaches.id}`}>
@@ -14,7 +14,7 @@ const Index = ({ data }) => {
           </Link>
         </div>
       ))}
-      <AmpAnalytics />
+      <AmpAnalytics /> */}
     </>
   );
 };
