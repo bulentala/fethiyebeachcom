@@ -1,31 +1,24 @@
-import React from "react";
-import slug from "slug";
-import Link from "next/link";
-import AmpAnalytics from "components/AmpAnalystic";
+import React from 'react'
+import AmpAnalytics from 'components/AmpAnalystic'
+import Layout from 'components/Layout'
+import Main from 'components/Main'
 
-const Index = ({ data }) => {
+const Index = ({ beaches }) => {
   return (
-    <>
-      <div>fethiyebeach.com</div>
-      {data.map((beaches) => (
-        <div key={beaches.id}>
-          <Link href={`/${slug(beaches.title)}-${beaches.id}`}>
-            <a>{beaches.title}</a>
-          </Link>
-        </div>
-      ))}
+    <Layout>
+      <Main beaches={beaches} />
       <AmpAnalytics />
-    </>
-  );
-};
+    </Layout>
+  )
+}
 export async function getStaticProps() {
-  const res = await fetch(`${process.env.API_BASE_URL}en`);
-  const data = await res.json();
+  const res = await fetch(`${process.env.API_BASE_URL}en`)
+  const beaches = await res.json()
   return {
     props: {
-      data,
+      beaches,
     },
-  };
+  }
 }
-export const config = { amp: true };
-export default Index;
+export const config = { amp: true }
+export default Index
